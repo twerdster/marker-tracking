@@ -8,39 +8,37 @@
 ![Code: C# + C++](https://img.shields.io/badge/code-C%23%20%2B%20C%2B%2B-blue)
 ![Source: partial snapshot](https://img.shields.io/badge/source-partial%20snapshot-orange)
 
-Real-time marker detection and pose estimation using FAST features and a decision-tree classifier.
+This project developed desktop marker-training and camera-tracking code using image features, classification trees and a projective transform. It was intended as a step toward an iPod port, but that port was not completed. The recovered Windows application is partial and cannot build as provided.
 
-Students: Alex Kemarsky.
+Student: Alex Kemarsky. Supervision: Aaron Wetzler.
 
-Supervision: Aaron Wetzler.
-
-## Status
-
-**Partial original desktop source recovered. Build and run untested.** `source/` preserves 83 unchanged text files from the final tracking/training handoff, including student C#/C++ source, original project files and the original usage instructions. The intended iPod port was not completed; this is not an iOS application.
+*The unchanged historical figure shows marker tracking and transformed image patches. It is not a result from a new run.*
 
 ## Original code
 
-The recovered desktop source is in [`source/`](source/): the tracking solution in [`source/tracking-2008/`](source/tracking-2008/), the training solution in [`source/training-2010/`](source/training-2010/), and the student's original [`README - usage.txt`](<source/README - usage.txt>). Several referenced dependencies are intentionally absent; see below.
+The [source snapshot](source/) contains 83 unchanged text files from the original handoff: C#/C++ code, Visual Studio project files and the student's [usage instructions](<source/README - usage.txt>). Per the usage notes, the two entrypoints are:
 
-## Running
+- `source/training-2010/Tracking.sln`: select a marker image, choose a training directory and generate the tree data.
+- `source/tracking-2008/WebCamCSharp.sln`: load the marker and `Tree0.dat`, start camera capture and draw the tracked marker boundary.
 
-The student's handoff specifies **Visual Studio 2008 for tracking** and **Visual Studio 2010 for training**. The preserved entrypoints are `source/tracking-2008/WebCamCSharp.sln` and `source/training-2010/Tracking.sln`. They use Windows Forms/C#, a native C++ TrackingDLL and MFC; the archive has a mixture of .NET 3.5/4.0 project configurations. Original `Program.cs` opens MainForm for tracking and Form1 for training. No historical compiler was invoked during recovery.
+`TrackingDll` handles feature detection, tree matching and RANSAC-based projective matching. FAST detection and RANSAC fitting rely on third-party files that were withheld (see below).
 
-See `source/README - usage.txt` for original menu instructions: select a marker and training output directory, train, then load the trained marker for camera tracking. The program expects `C:\Temp`; tracking loads `Tree0.dat`. The handoff reports that VS2008 camera capture reached 640x480 and that VS2010 capture/VS2008 training had problems. These are historical observations, not new test results.
+## Setup and historical usage
 
-### Missing Dependencies
+The handoff specifies Visual Studio 2010 for training and Visual Studio 2008 for tracking. The projects use Windows Forms/C#, native C++/MFC and mixed .NET 3.5/4.0 settings. They expect `C:\Temp` and a marker directory containing trained data. The [original usage guide](<source/README - usage.txt>) explains the menus and classifier/RANSAC thresholds.
 
-Touchless WebCamLib/WebCamWrapper and EasyWebCam camera components are not redistributed. Bundled FAST detector code and the RANSAC files crediting Peter Kovesi are withheld pending separate provenance/license review. These exclusions leave referenced projects, headers and functions missing; the solutions are partial and cannot build as provided. `detectFast.cpp` is a MATLAB MEX helper and references `mex.h`; no MATLAB release was established.
+The solutions cannot build as provided. Touchless WebCamLib/WebCamWrapper, EasyWebCam components, bundled FAST detector code and RANSAC files credited to Peter Kovesi were withheld pending separate provenance/license review. They leave missing project references, headers and functions. `detectFast.cpp` is a MATLAB MEX helper requiring `mex.h`; its MATLAB version is unknown.
 
-The handoff's Test 2008/Test 2010 packages contain disguised DLL/EXE files with `.aa`/`.bb` extensions. They were neither imported nor executed. VCS state, user-specific project files, compiled artifacts, trained trees, images and unreviewed reports/presentations are excluded. No blanket license is inferred from the source handoff.
+## Validation and limitations
+
+Recovery checked the text/project inventory and preserved the original usage record. No historical compiler, camera session, training job or tracking benchmark was run. The handoff's statement that VS2008 camera capture reached 640-by-480 pixels, and its reports of VS2010 capture/VS2008 training problems, are the student's historical observations.
+
+No binaries were tested: handoff packages with `.aa`/`.bb` files were identified as DLL/EXE material and excluded. Trained trees, sample images, user-specific state and unreviewed documents were also excluded. There is no updated implementation, notebook or supported modern setup recipe. Restoration requires the missing dependencies and their applicable reuse terms.
+
+## Attribution
+
+Original student credits and file notices remain intact. No blanket license is added. Authors can open an issue to contribute changes, correct attribution or request removal.
 
 ## Links
 
 - [Project entry on Aaron Wetzler's website](https://twerdster.github.io/#marker-tracking)
-
-## Attribution and Updates
-
-Original student credits and file notices are preserved. No blanket license has been added; omitted camera/algorithm dependencies require their own terms. Original authors can open an issue to contribute updates or request corrections or removal of their material.
-
-Figure provenance: `assets/project-preview.jpg` is the original student-project figure from the archived project page on Aaron Wetzler's website, copied without modification.
-
