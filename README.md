@@ -39,6 +39,8 @@ No binaries were tested: handoff packages with `.aa`/`.bb` files were identified
 
 Original student credits and file notices remain intact. No blanket license is added. Authors can open an issue to contribute changes, correct attribution or request removal.
 
+On 2026-11-12, Alex Kemarsky gave Aaron Wetzler permission to use the recovered project code. This records Alex Kemarsky's response only; it does not grant rights to the withheld third-party dependencies or establish a new repository-wide license. The incomplete build and validation limits above remain unchanged.
+
 ## Links
 
 - [Project entry on Aaron Wetzler's website](https://twerdster.github.io/#marker-tracking)
