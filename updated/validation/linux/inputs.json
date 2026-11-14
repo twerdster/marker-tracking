@@ -1,0 +1,20 @@
+[
+  {
+    "name": "box.png",
+    "url": "https://raw.githubusercontent.com/opencv/opencv/4.12.0/samples/data/box.png",
+    "sha256": "1094629c1e2ebbc8a9ae2c9c63e18c1dff0f5f1481146e02f3b11a3d30feb20a",
+    "bytes": 50728
+  },
+  {
+    "name": "box_in_scene.png",
+    "url": "https://raw.githubusercontent.com/opencv/opencv/4.12.0/samples/data/box_in_scene.png",
+    "sha256": "8b0225ff76244a42bd1400c0904f8b7afea7d97b7d8115495e42e98ad347bd51",
+    "bytes": 122490
+  },
+  {
+    "name": "fruits.jpg",
+    "url": "https://raw.githubusercontent.com/opencv/opencv/4.12.0/samples/data/fruits.jpg",
+    "sha256": "9c031d80a1c52da5eca790db896baffec6a7e52bf786cdb7bbfca5c7f880e6a1",
+    "bytes": 82429
+  }
+]

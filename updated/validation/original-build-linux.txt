@@ -1,0 +1,5 @@
+In file included from training-2010/TrackingDll/SearchTree.cpp:1:
+training-2010/TrackingDll/stdafx.h:15:10: fatal error: afxwin.h: No such file or directory
+   15 | #include <afxwin.h>         // MFC core and standard components
+      |          ^~~~~~~~~~
+compilation terminated.

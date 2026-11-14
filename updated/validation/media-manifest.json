@@ -1,0 +1,31 @@
+{
+  "assets": {
+    "unrelated.png": {
+      "bytes": 405486,
+      "sha256": "60f97ceefa32a4413157a88d25b35d2539bb8a19cd3754aae3d64edab3233ab8"
+    },
+    "replay.gif": {
+      "bytes": 1759591,
+      "sha256": "4de138edb73c4ef69eb9168bbeb6823c3211368d6dfe9d14bb0374eaf6d4f613"
+    },
+    "new-badge.svg": {
+      "bytes": 358,
+      "sha256": "9a22068d47a569b443d5d3329e976eb258b8ac6fd769473c39d16c4fb794f984"
+    },
+    "real-photo.png": {
+      "bytes": 345310,
+      "sha256": "5bd491a4ba6256d4b4433c28f6897b3693b590c23c85bc3fb62f5a0c9f31c70b"
+    },
+    "replay.mp4": {
+      "bytes": 217725,
+      "sha256": "38a2bbceecce8dbf4156218dfbd699d799cfa369e2051c5233104f5f8fcd9e58"
+    }
+  },
+  "sources": {
+    "real-photo.png": "macos-release image command on separately photographed OpenCV box_in_scene.png",
+    "unrelated.png": "macos-release image command on OpenCV fruits.jpg",
+    "replay.gif": "macos-release synthetic-replay/replay.avi; 8fps,600pixel width,96color palette",
+    "replay.mp4": "same generated AVI; H.264 CRF25,720x480,12fps"
+  },
+  "visual_review": "Inspected actual real-photo overlay, occluded synthetic frame28, and absent frame42; boundary drawn only on successful detector output"
+}

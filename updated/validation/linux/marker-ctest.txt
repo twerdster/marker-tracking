@@ -1,0 +1,8 @@
+Internal ctest changing into directory: <build-directory>
+Test project <build-directory>
+    Start 1: tree_regression
+1/1 Test #1: tree_regression ..................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.00 sec

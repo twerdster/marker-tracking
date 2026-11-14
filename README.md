@@ -1,5 +1,9 @@
 # Marker tracking
 
+[![New!](updated/assets/new-badge.svg)](updated/README.md#updated-and-ported-for-modern-hardware) [**Updated and ported for modern hardware**](updated/README.md#updated-and-ported-for-modern-hardware)
+
+The sections below describe the recovered Windows snapshot.
+
 <p align="center">
   <img src="assets/project-preview.jpg" alt="Top: a marker photograph and the same photograph held in front of a camera with detected feature points and a red tracked boundary. Bottom: a grid of rotated and warped grayscale image patches" width="420">
 </p>

@@ -1,0 +1,5 @@
+In file included from source/training-2010/TrackingDll/SearchTree.cpp:1:
+source/training-2010/TrackingDll/stdafx.h:15:10: fatal error: 'afxwin.h' file not found
+   15 | #include <afxwin.h>         // MFC core and standard components
+      |          ^~~~~~~~~~
+1 error generated.

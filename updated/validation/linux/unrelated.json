@@ -1,0 +1,13 @@
+{
+    "frames": [
+        {
+            "frame": 0,
+            "found": 0,
+            "candidates": 900,
+            "matches": 20,
+            "inliers": 5,
+            "inlier_rmse_pixels": -1.0,
+            "runtime_ms": 59.993566000000001
+        }
+    ]
+}

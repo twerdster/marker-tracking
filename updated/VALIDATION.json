@@ -1,0 +1,176 @@
+{
+  "recorded_date": "2026-11-14",
+  "scope": "Updated original-derived ternary classification-tree component and new C++ image/video frontend; not an unchanged Windows application build",
+  "original_attempt": {
+    "command": "clang++ -std=c++17 -fsyntax-only source/training-2010/TrackingDll/SearchTree.cpp",
+    "status": "failed as expected",
+    "first_error": "afxwin.h not found",
+    "further_inspected_blockers": [
+      "Missing Ransac.h and fast.h implementations",
+      "Windows Forms/MFC and Touchless/EasyWebCam references",
+      "Old Visual Studio projects and C:\\Temp assumptions"
+    ],
+    "log": "validation/original-build-macos.txt",
+    "linux_first_error": "afxwin.h not found using g++ -std=c++17 -fsyntax-only",
+    "linux_log": "validation/original-build-linux.txt"
+  },
+  "macos_environment": {
+    "os": "macOS15.1.1 (24B91)",
+    "cpu": "Apple M3 Max",
+    "arch": "arm64",
+    "runtime_dependency_failure": "Installed Homebrew OpenCV4.12 linked unavailable ffmpeg61/OpenEXR3_3 libraries; isolated OpenCV build used instead; no global packages changed",
+    "opencv_source_archive_sha256": "44c106d5bb47efec04e531fd93008b3fcd1d27138985c5baf4eafac0e1ec9e9d"
+  },
+  "runs": {
+    "macos-release": {
+      "status": "passed",
+      "compiler": "AppleClang16.0.0",
+      "build_type": "Release",
+      "opencv": "4.12.0 private native build; OpenCV itself uninstrumented",
+      "real_photo": {
+        "found": 1,
+        "inliers": 16,
+        "matches": 39,
+        "inlier_rmse_pixels": 1.5463725247477367,
+        "runtime_ms": 79.330708
+      },
+      "unrelated_photo_found": 0,
+      "synthetic_replay": {
+        "present_frames": 48,
+        "found_present_frames": 48,
+        "absent_frames": 12,
+        "false_positive_frames": 0,
+        "corner_rmse_found_frames_pixels": 5.919585313496194
+      },
+      "video_decoding": {
+        "frames": 60,
+        "found_frames": 48,
+        "false_positives_absence": 0,
+        "median_runtime_ms": 80.7875835
+      },
+      "checks": "1 CTest entry: constant-patch no-split fallback, 8 histogram bins, normalized sum, serialization equality, 5 malformed-tree rejection cases; scoped demo result assertions",
+      "marker_points": 95,
+      "trees": 32,
+      "training_seconds": 7.66859
+    },
+    "macos-asan": {
+      "status": "passed",
+      "compiler": "AppleClang16.0.0",
+      "build_type": "RelWithDebInfo + address/undefined-behavior sanitizers",
+      "opencv": "4.12.0 private native build; OpenCV itself uninstrumented",
+      "real_photo": {
+        "found": 1,
+        "inliers": 16,
+        "matches": 39,
+        "inlier_rmse_pixels": 1.5463725247477367,
+        "runtime_ms": 164.777292
+      },
+      "unrelated_photo_found": 0,
+      "synthetic_replay": {
+        "present_frames": 48,
+        "found_present_frames": 48,
+        "absent_frames": 12,
+        "false_positive_frames": 0,
+        "corner_rmse_found_frames_pixels": 5.919585313496194
+      },
+      "video_decoding": {
+        "frames": 60,
+        "found_frames": 48,
+        "false_positives_absence": 0,
+        "median_runtime_ms": 127.6496875
+      },
+      "checks": "1 CTest entry: constant-patch no-split fallback, 8 histogram bins, normalized sum, serialization equality, 5 malformed-tree rejection cases; scoped demo result assertions",
+      "marker_points": 95,
+      "trees": 32,
+      "training_seconds": 20.9428
+    },
+    "linux-release": {
+      "status": "passed",
+      "compiler": "GCC11.4.0 (Ubuntu11.4.0-1ubuntu1~22.04.3)",
+      "build_type": "Release",
+      "opencv": "4.12.0 task-local static build",
+      "real_photo": {
+        "found": 1,
+        "inliers": 13,
+        "matches": 33,
+        "inlier_rmse_pixels": 1.074939546870611,
+        "runtime_ms": 51.489213
+      },
+      "unrelated_photo_found": 0,
+      "synthetic_replay": {
+        "present_frames": 48,
+        "found_present_frames": 48,
+        "absent_frames": 12,
+        "false_positive_frames": 0,
+        "corner_rmse_found_frames_pixels": 7.442636805109493
+      },
+      "video_decoding": {
+        "frames": 60,
+        "found_frames": 48,
+        "false_positives_absence": 0,
+        "median_runtime_ms": 47.097982
+      },
+      "logs": [
+        "validation/linux/marker-linux-verified.txt",
+        "validation/linux/marker-ctest.txt"
+      ],
+      "checks": "1 CTest entry and full demo fixture assertions passed; no Linux sanitizer run claimed",
+      "marker_points": 95,
+      "trees": 32,
+      "training_seconds": 5.92096
+    }
+  },
+  "source_preservation": {
+    "files": 83,
+    "manifest": "validation/original-source-sha256.json",
+    "all_hashes_match": true,
+    "root_readme_change": "New! badge/update guide link and sentence identifying remaining sections as the recovered Windows snapshot"
+  },
+  "claims_and_limits": [
+    "The real photo pair and synthetic fixture were development fixtures used for threshold selection, not held-out benchmarks.",
+    "Synthetic known-transform corner error is independent of fitted inlier error.",
+    "Real-photo inlier RMSE is fit to accepted correspondences, not external pose ground truth.",
+    "The generated motion is synthetic; no captured live-camera or iPhone/Android result is claimed.",
+    "Training uses seeded C library rand and OpenCV RNG; independently trained forests and numeric results may differ by platform.",
+    "One unrelated photo plus generated absence frames do not establish a general false-positive rate."
+  ],
+  "linux_environment": {
+    "os": "Ubuntu22.04.5LTS",
+    "kernel": "6.8.0-138-generic",
+    "arch": "x86_64",
+    "cpu": "AMD Ryzen7 9800X3D;8cores/16logicalCPUs",
+    "compiler": "GCC11.4.0 (Ubuntu11.4.0-1ubuntu1~22.04.3)",
+    "opencv": "4.12.0 private static build",
+    "gpu_used": false
+  },
+  "validated_source_sha256": {
+    "updated/CMakeLists.txt": "3e47b1a250ebde105cd00957ebd04f0d001a2254c16b01374bd647519a36ffdf",
+    "updated/src/SearchTree.cpp": "db35e81a7c3aeba8b1a2cc016fa5c0aed2fd9310a9e8e34e56a64515643ab1e2",
+    "updated/src/SearchTree.h": "25d44768ec8ba0712df085ef70a409ee883309ee366e8f9254d49e4aee069e6d",
+    "updated/src/main.cpp": "6cdf0ad63cc996c9361da0e0749e2c3b2e724a201aba198a468e78b46630c4ad",
+    "updated/src/portable.h": "779117a3c104be59fc810e07f997a68c38dc65fd82845af9554197ddb591f633",
+    "updated/tests/check_results.py": "409c34ea738f75b43b07350437bdaed52eae7bfdcc39b04bb1716294aaffcb0b",
+    "updated/tools/run_demo.py": "ff06d15e70ffd372d2652253fe1fc1ba5fdcef6627446cc797862b615760982e"
+  },
+  "opencv_version_scope": {
+    "configured_minimum": "4.5",
+    "tested": "4.12.0",
+    "other_versions_tested": false,
+    "dependency_installation_scope": "Both platform runs used task-local OpenCV4.12.0 builds; suggested Ubuntu/Debian system-package setup untested"
+  },
+  "editorial_review": {
+    "date": "2026-11-14",
+    "reviewer": "Claude via actual CLI review coordinated by maintainer agent",
+    "rounds_completed": 2,
+    "scope": "Two code/documentation review rounds; useful factual wording, build-command compatibility and validation qualifications checked and applied; adds no runtime coverage"
+  },
+  "public_log_normalization": {
+    "changed": "Only task-local build/output directory paths replaced by <build-directory> or <demo-output>; measurements and errors unchanged.",
+    "files": [
+      "updated/validation/macos-release/stdout.txt",
+      "updated/validation/linux/marker-linux-verified.txt",
+      "updated/validation/linux/marker-ctest.txt",
+      "updated/validation/macos-asan/stdout.txt"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+PASS: constant split fallback, 8 histogram classes, normalized sum, serialization equivalence, 5 malformed tree rejection cases
+Trained 32 original-derived trees for 95 marker points in 20.9428 seconds
+FOUND 16 inliers, 1.54637 pixel inlier RMSE, 164.777 ms
+NOT FOUND 5 inliers, -1 pixel inlier RMSE, 173.998 ms
+Synthetic replay: 48/48 present frames detected; 0/12 absent-frame false positives
+Processed 60 frames
+Results saved in <demo-output>
